@@ -81,26 +81,36 @@
         getTime();
         setInterval(getTime, 60000); // Update time every 1 minute
 
-        // Function to load schedule
-        function loadSchedule() {
-            const scheduleData = [
-                { date: "Every Monday 8:00 PM ET", time: "10:00 PM", event: "Event 1", link: "#" },
-                { date: "Every Tuesday 8:00 PM ET", time: "11:00 AM", event: "Event 2", link: "#" },
-                { date: "Every Wednesday 8:00 PM ET", time: "2:00 PM", event: "Event 4", link: "#" }
-            ];
+       // Function to load schedule
+function loadSchedule() {
+    const scheduleData = [
+        { date: "Every Monday 8:00 PM ET", time: "10:00 PM", event: "Event 1", link: "#" },
+        { date: "Every Tuesday 8:00 PM ET", time: "11:00 AM", event: "Event 2", link: "#" },
+        { date: "Every Wednesday 8:00 PM ET", time: "2:00 PM", event: "Event 4", link: "#" },
+        { date: "Every Thursday 7:00 PM ET", time: "8:00 PM", event: "Event 5", link: "#" },
+        { date: "Every Friday 9:00 PM ET", time: "9:30 PM", event: "Event 6", link: "#" },
+        { date: "Every Saturday 10:00 PM ET", time: "10:30 PM", event: "Event 7", link: "#" },
+        { date: "Every Sunday 11:00 PM ET", time: "11:30 PM", event: "Event 8", link: "#" }
+    ];
 
-            const scheduleBody = document.getElementById('scheduleBody');
-            scheduleBody.innerHTML = ''; // Clear previous content
+    // Example code to display the schedule
+    const scheduleContainer = document.getElementById('schedule-container');
+    scheduleContainer.innerHTML = ''; // Clear existing schedule
 
-            scheduleData.forEach(item => {
-                const row = `<tr>
-                    <td>${item.date} ${item.time} ET</td>
-                    <td>${item.event}</td>
-                    <td><a href="${item.link}">Watch</a></td>
-                </tr>`;
-                scheduleBody.innerHTML += row;
-            });
-        }
+    scheduleData.forEach(item => {
+        const scheduleItem = document.createElement('div');
+        scheduleItem.className = 'schedule-item';
+        scheduleItem.innerHTML = `
+            <p>Date: ${item.date}</p>
+            <p>Time: ${item.time}</p>
+            <p>Event: <a href="${item.link}">${item.event}</a></p>
+        `;
+        scheduleContainer.appendChild(scheduleItem);
+    });
+}
+
+// Call the function to load the schedule
+loadSchedule();
 
         // Load schedule on page load
         document.addEventListener('DOMContentLoaded', loadSchedule);
