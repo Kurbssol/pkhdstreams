@@ -1,0 +1,131 @@
+  <!DOCTYPE HTML>
+  <html lang="en">
+  
+<!-- Mirrored from dd12streams.com/donate by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 15 Sep 2024 21:03:43 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <title>DD12</title>
+  <meta name="robots" content="noindex">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="../cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" >
+  <link rel="stylesheet" type="text/css" href="../stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" >
+  <link rel="stylesheet" type="text/css" href="styles.css" >
+  <link rel="apple-touch-icon" sizes="180x180" href="fav/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="fav/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="fav/favicon-16x16.png">
+  <link rel="manifest" href="fav/site.webmanifest">
+  <script>
+  $(function () {
+      $(window).on('scroll', function () {
+          if ( $(window).scrollTop() > 10 ) {
+              $('.navbar').addClass('active');
+          } else {
+              $('.navbar').removeClass('active');
+          }
+      });
+  });
+  </script>
+  <script>
+  document.addEventListener('goalLoad', function(obj) {
+    $('#title').html(obj.detail.titel);
+    $('#goal-total').text(obj.detail.amount.target);
+    $('#goal-end-date').text(obj.detail.to_go.ends_at);
+    $('#goal-current').text(obj.detail.amount.current);
+    var total = $('#goal-total').html(),
+        current = $('#goal-current').html();
+   	$('#total-bar').css('width', current / total * 100 + '%').css('width', '-=8px');
+    $('#goal-total').text(obj.detail.amount.target + ' $');
+    $('#goal-current').text(obj.detail.amount.current + ' $');
+  });
+
+  document.addEventListener('goalEvent', function(obj) {
+    $('#goal-total').text(obj.detail.amount.target);
+    $('#goal-current').text(obj.detail.amount.current);
+    var total = $('#goal-total').html(),
+        current = $('#goal-current').html();
+  	$('#total-bar').css('width', current / total * 100 + '%').css('width', '-=8px');
+    $('#goal-total').text(obj.detail.amount.target + ' $');
+    $('#goal-current').text(obj.detail.amount.current  + ' $');
+  });
+  </script>
+  <script src="../cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="../cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+  <script>// <![CDATA[
+  function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+  }
+  // ]]></script>
+  <script src="../translate.google.com/translate_a/elementa0d8.js?cb=googleTranslateElementInit"></script>
+  <!--<script src="/nav.js"></script>-->
+<!--<link rel="stylesheet" type="text/css" href="https://server.dd12streams.com/dono-bar-css.php" >-->
+  </head>
+  <body>
+    <header class="header">
+        <nav style="max-width: 1050px;" class="navbar navbar-expand-lg fixed-top py-3">
+            <div class="container"><a href="index.html" class="navbar-brand text-uppercase font-weight-bold">DD12</a>
+                <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right"><i class="fa fa-bars"></i></button>
+
+                <div id="navbarSupportedContent" class="collapse navbar-collapse">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a href="index.html" class="nav-link text-uppercase font-weight-bold">Home</a></li>
+                        <li class="nav-item"><a href="schedule.html" class="nav-link text-uppercase font-weight-bold">Schedule</a></li>
+                        <li class="nav-item"><a href="about.html" class="nav-link text-uppercase font-weight-bold">About</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <br>
+    <br>
+    <br>
+    <div id="google_translate_element"></div>
+    <p style="font-family: Arial;font-size:130%;color:black;text-align: center;  border: 5px solid black; margin: 0 auto;max-width: 1050px;">
+      Please help support keeping the website up!      <br>
+      You can donate using:
+      <!--<br>
+      (These colored <span style="color: #0000FF;">links</span> are clickable)-->
+      <br>
+      Cash App: <button onclick="document.getElementById('secret').style.display='block'">Click to reveal</button><span id="secret" style="color: #048c2c;display:none;">$untaxi <br>To prevent errors, do not send more than $10</span>
+      <br>
+      Crypto: <a href="https://www.poof.io/tip/@dd12">poof.io/tip/@dd12</a>
+      <br>
+      Email an Amazon (or vanilla egift) Gift card to: dd12streams@proton.me
+      </p>
+    <!--<div style="max-width: 1050px; margin: 0 auto;" class='goal-cont'>
+      <div style='position: relative'>
+        <div id='goal-bar'>
+          <p id='goal-current'>$44</p>
+          <p id='title'>Donation Goal for April</p>
+          <p id='goal-total'>$100</p>
+          <div id='total-bar'></div>
+        </div>
+      </div>
+      <i style="font-family: Arial;color:black;text-align: center;">Resets at the end of every month. Updated manually.</i>
+    </div>-->
+    <!--<script>
+      var vTimeOut2;
+      
+      function startRefresh2() {
+        clearInterval(vTimeOut2), vTimeOut2 = setTimeout(startRefresh2, 2e4), $("#goalcrap").load("https://server.dd12streams.com/dono-goal.php #idkwhattonamethis")
+      }
+      $(function() {
+        vTimeOut2 = setTimeout(startRefresh2, 0)
+      })
+    </script>-->
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+<footer class="footer">Made with ❤️ by DD12</footer>
+  </body>
+  
+<!-- Mirrored from dd12streams.com/donate by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 15 Sep 2024 21:03:43 GMT -->
+</html>

@@ -1,0 +1,38 @@
+* {
+ box-sizing: border-box;
+}
+div.nospaces {
+  margin: 0;
+  display: inline-block;
+  float: left;
+}
+.rightalign {
+  text-align: right;
+}
+body {
+  margin: 0;
+  font-family:arial;
+}
+#main {
+  display: flex;
+  min-height: calc(125vh - 40vh);
+}
+#main > article {
+  background: black;
+  flex: 1;
+}
+#main > nav,
+#main > aside {
+  flex: 0 0 25vw;
+  background: black;
+}
+#main > nav {
+  order: -1;
+}
+header, footer, article, nav, aside {
+  padding: 1em;
+}
+header, footer {
+  background: black;
+  height: 8vh;
+}
