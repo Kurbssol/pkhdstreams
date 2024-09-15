@@ -1,32 +1,35 @@
-function checkStreamStatus(streamName, statusElementId) {
-  const apiUrl = `https://api.example.com/stream-status/${streamName}`; // Replace with your actual API endpoint
+const elems = document.getElementsByClassName('stream-status');
 
-  fetch(apiUrl)
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Network response was not ok ' + response.statusText);
-      }
-      return response.json();
-    })
-    .then(data => {
-      const status = data.isOnline ? "Online" : "Offline";
-      document.getElementById(statusElementId).textContent = status;
-    })
-    .catch(err => {
-      console.log("Error fetching stream status:", err);
-      document.getElementById(statusElementId).textContent = "Error";
-    });
+function refreshStreams() {
+    for (const elem of elems) {
+        makeRequest(elem.getAttribute("data-videourl"), function () {
+            if (this.readyState == 4) {
+                if (this.status == 200) {
+                    // Check the response URL to determine if the stream is really online
+                    if (this.responseURL == elem.getAttribute("data-videourl")) {
+                        elem.classList.add('stream-status-online');
+                        elem.innerHTML = 'Stream is online ✅';
+                    } else {
+                        elem.classList.add('stream-status-offline');
+                        elem.innerHTML = 'Stream is offline ❌';
+                    }
+                } 
+                else {
+                    elem.classList.add('stream-status-offline');
+                    elem.innerHTML = 'Stream is offline ❌';
+                }
+            }
+        })
+    };
 }
 
-function updateAllStatuses() {
-  checkStreamStatus('raw', 'raw-status');
-  checkStreamStatus('nxt', 'nxt-status');
-  checkStreamStatus('dynamite', 'dynamite-status');
-  checkStreamStatus('smackdown', 'smackdown-status');
-  checkStreamStatus('collision', 'collision-status');
-  checkStreamStatus('nascar', 'nascar-status');
+function makeRequest(url, callback) {
+    const xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = callback;
+    xhttp.open("GET", url, true);
+    xhttp.send();
 }
 
-// Call status updates initially and then refresh every 20 seconds
-updateAllStatuses();
-setInterval(updateAllStatuses, 20000);
+
+refreshStreams();
+setInterval(() => refreshStreams(), 10000);
