@@ -333,6 +333,31 @@ aside{
         color: transparent;
     }
 }
+.schedule, .nascar-schedule {
+  margin-top: 20px;
+}
+
+.schedule h2, .nascar-schedule h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.list-group-item {
+  font-size: 1em;
+  padding: 10px;
+}
+
+#nascar-race-info {
+  font-size: 1em;
+}
+
+#dark-mode-toggle {
+  margin-top: 20px;
+}
+
+#chat-toggle {
+  margin-top: 20px;
+}
 
 
 
