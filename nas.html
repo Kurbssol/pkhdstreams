@@ -1,95 +1,237 @@
 <!DOCTYPE HTML>
 <html lang="en">
 
+<!-- Mirrored from dd12streams.com/nas by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 15 Sep 2024 21:03:36 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <head>
-    <title>DD12 Streams</title>
-    <meta name="description" content="A light-weight streaming website that's easy to use. Come check us out!">
-    <meta content="DD12Streams" property="twitter:title" />
-    <meta content="A pretty cool live streaming website." property="twitter:description" />
-    <meta content="https://dd12streams.com/fav/dd12.png" property="twitter:image" />
-    <meta property="og:type" content="website" />
-    <meta content="summary_large_image" name="twitter:card" />
-    <meta name="twitter:domain" content="dd12streams.com" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Load global stylesheet -->
-    <link rel="stylesheet" href="path/to/your/global-styles.css">
-
-    <!-- Include necessary external styles if needed -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    
-    <!-- Custom styles specific to this page (if any) -->
-    <link rel="stylesheet" href="styles.css">
-
-    <!-- Add JavaScript for dark mode and other features -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            var darkModeEnabled = localStorage.getItem("darkModeEnabled");
-            if (darkModeEnabled === "true") {
-                document.documentElement.classList.add("dark-mode");
-                document.body.classList.add("dark-mode");
-            }
-        });
-        
-        function darkMode() {
-            document.documentElement.classList.toggle("dark-mode");
-            document.body.classList.toggle("dark-mode");
-            localStorage.setItem("darkModeEnabled", document.documentElement.classList.contains("dark-mode"));
+<title>DD12 Streams</title>
+<meta name="description" content="A light-weight streaming website that's easy to use. Come check us out!">
+<meta content="DD12Streams" property="twitter:title" />
+<meta content="A pretty cool live streaming website." property="twitter:description" />
+<meta content="https://dd12streams.com/fav/dd12.png" property="twitter:image" />
+<meta property="og:type" content="website"/><meta content="summary_large_image" name="twitter:card"/>
+<meta name="twitter:domain" content="dd12streams.com" />
+<meta name="viewport" content="width=device-width, initial-scale=0.8">
+<link rel="stylesheet" type="text/css" href="../cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" >
+<link rel="stylesheet" type="text/css" href="../stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" >
+<link rel="stylesheet" type="text/css" href="styles.css">
+<link href="dono-popup.css" rel="stylesheet" type="text/css">
+<link rel="apple-touch-icon" sizes="180x180" href="fav/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="fav/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="fav/favicon-16x16.png">
+<link rel="manifest" href="fav/site.webmanifest">
+<script>
+$(function () {
+    $(window).on('scroll', function () {
+        if ( $(window).scrollTop() > 10 ) {
+            $('.navbar').addClass('active');
+        } else {
+            $('.navbar').removeClass('active');
         }
-    </script>
+    });
+});
+</script>
+<script src="../cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="../cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+<script src="stream-status.js"></script>
+<script src="viewer-count.js"></script>
+<script src="dono-popup.js"></script>
+<!--<script src="/nav.js"></script>-->
+<script>// <![CDATA[
+function googleTranslateElementInit() {
+new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+}
+// ]]></script>
+<!--<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>-->
+  <script>
+    function darkMode() {
+      var element = document.documentElement;
+      var element2 = document.body;
+      var isDarkMode = element.classList.contains("dark-mode");
+      
+      // Toggle dark mode
+      element.classList.toggle("dark-mode");
+      element2.classList.toggle("dark-mode");
+      
+      // Store the user's preference in local storage
+      localStorage.setItem("darkModeEnabled", !isDarkMode);
+    }
+    
+    // Check if dark mode was previously enabled
+    document.addEventListener("DOMContentLoaded", function() {
+      var darkModeEnabled = localStorage.getItem("darkModeEnabled");
+      if (darkModeEnabled === "true") {
+        darkMode(); // Enable dark mode
+      }
+    });
+  </script>
 
-    <!-- External JavaScript for Bootstrap, jQuery, etc. -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function changeSource() {
+      var iframe = document.getElementById("vplayer");
+      var selectBox = document.getElementById("website-select");
+      var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+      var selectedOption = selectBox.options[selectBox.selectedIndex];
+      if (selectedOption.classList.contains('no-iframe')) {
+        window.location.href = selectedValue;
+      } else {
+        iframe.src = selectedValue;
+      }
+    }
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8Y0CPRKT4E"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    
+    gtag('config', 'G-8Y0CPRKT4E');
+  </script>
+  <script>
+    function toggleChatIframe() {
+      var iframe = document.getElementById("theChat");
+      if (iframe.style.display === "none") {
+        iframe.style.display = "block"; // Shows the iframe
+      } else {
+        iframe.style.display = "none"; // Hides the iframe
+      }
+    }
+  </script>
 </head>
-
 <body>
-    <!-- Consistent Header/Navbar -->
-    <header class="header">
-        <nav class="navbar navbar-expand-lg fixed-top py-3">
-            <div class="container">
-                <a href="index.html" class="navbar-brand text-uppercase font-weight-bold">DD12</a>
-                <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right">
-                    <i class="fa fa-bars"></i>
-                </button>
-                <div id="navbarSupportedContent" class="collapse navbar-collapse">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active"><a href="index.html" class="nav-link text-uppercase font-weight-bold">Home</a></li>
-                        <li class="nav-item"><a href="donate.html" class="nav-link text-uppercase font-weight-bold">Donate</a></li>
-                        <li class="nav-item"><a href="schedule.html" class="nav-link text-uppercase font-weight-bold">Schedule</a></li>
-                        <li class="nav-item"><a href="about.html" class="nav-link text-uppercase font-weight-bold">About</a></li>
-                        <li class="nav-item"><a href="dmca.html" class="nav-link text-uppercase font-weight-bold">DMCA</a></li>
-                        <li class="nav-item"><a href="https://discord.gg/TTFE8Jfz7G" class="nav-link text-uppercase font-weight-bold">Discord</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
+  <header class="header">
+      <nav class="navbar navbar-expand-lg fixed-top py-3">
+          <div class="container"><a href="index.html" class="navbar-brand text-uppercase font-weight-bold">DD12</a>
+              <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right"><i class="fa fa-bars"></i></button>
 
-    <!-- Spacing to push content below navbar -->
-    <br><br><br>
-
-    <div class="container">
-        <!-- Streaming section -->
-        <main>
-            <iframe id="vplayer" name="player" allowfullscreen="true" frameborder="0" height="500px" src="jwplayer.html" width="100%"></iframe>
-        </main>
-
-        <!-- Options and Controls -->
-        <div class="d-flex justify-content-center mt-3">
-            <a href="how-to-watch-nascar-officially-and-legally.html" class="btn btn-secondary">Official Ways to Stream</a>
-            <button class="btn btn-secondary ml-2" onclick="darkMode()">Toggle Dark Mode</button>
-            <a href="big-nas.html" class="btn btn-secondary ml-2">Big Player</a>
-        </div>
-
-        <!-- Chat section -->
-        <iframe id="theChat" name="thechat" allowfullscreen="true" frameborder="0" height="500px" src="https://www.twitch.tv/embed/derali1217/chat?darkpopout&amp;parent=dd12streams.com" width="100%"></iframe>
+              <div id="navbarSupportedContent" class="collapse navbar-collapse">
+                  <ul class="navbar-nav ml-auto">
+                      <li class="nav-item active"><a href="index.html" class="nav-link text-uppercase font-weight-bold">Home <span class="sr-only">(current)</span></a></li>
+                      <li class="nav-item"><a href="donate.html" class="nav-link text-uppercase font-weight-bold">Donate</a></li>
+                      <li class="nav-item"><a href="schedule.html" class="nav-link text-uppercase font-weight-bold">Schedule</a></li>
+                      <li class="nav-item"><a href="about.html" class="nav-link text-uppercase font-weight-bold">About</a></li>
+                      <li class="nav-item"><a href="dmca.html" class="nav-link text-uppercase font-weight-bold">DMCA</a></li>
+                    <li class="nav-item">
+                      <a href="https://discord.gg/TTFE8Jfz7G" class="nav-link text-uppercase font-weight-bold">Discord</a>
+                    </li>
+                    <!--<li class="nav-item">
+                      <a href="https://ceasefiretoday.com/" class="nav-link text-uppercase font-weight-bold">Ceasefire 🇵🇸</a>
+                    </li>-->
+                  </ul>
+              </div>
+          </div>
+      </nav>
+  </header>
+  <br>
+  <br>
+  <br>
+  <div id="popup" class="popup">
+    <div class="popup-content">
+      <span class="close-button">×</span>
+      <h2>Support DD12Streams!</h2>
+      <p>No, this is not an ad. Just a reminder that donations help keep the website ad free!</p>
+      <button id="donatePopButton">Donate</button>
     </div>
+  </div>
 
-    <!-- Footer -->
-    <footer class="footer text-center py-4">
-        <span>Made with ❤️ by DD12 | Free Palestine 🇵🇸</span>
-    </footer>
+  <div style="font-family: Arial;font-size:25px;">
+
+<!--<a href="https://www.buymeacoffee.com/dd12streams" target="_blank"><img id="donobutton" src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" height="40px" width="157px"/></a>-->
+      <!--<a id="google_translate_element" class="DonateButton"></a>-->
+      <!--<a href="/adsports" class="DonateButton">International Feed</a>-->
+      <a href="how-to-watch-nascar-officially-and-legally.html" class="DonateButton">Official ways to stream</a>
+      <a class="DonateButton" style="color: white" onclick="darkMode()">Dark Mode</a>
+    <a href="big-nas.html" class="DonateButton">Big Player</a>
+    <!--<a onclick="showChatRules()" class="DonateButton" style="color:white">Chat Rules</a>-->
+    <a onclick="toggleChatIframe()" class="DonateButton" style="color:white">Show/Hide chat</a>
+    <a  href="javascript:window.open('https://www.twitch.tv/embed/derali1217/chat?darkpopout&amp;parent=dd12streams.com','DD12 Chat popped out','width=400,height=600')" class="DonateButton">Popout chat</a>
+    <a style="color: white" class="DonateButton">🔴 <span id="viewers">2k+ Viewers</span></a> 
+    
+      <center id="shrinkporfavor" style="font-size: 18px">
+        I am currently running low on funds. Any help is appreciated: <a href="donate.html">Donate</a>
+        <!--<span class="br"></span>-->
+<br>
+        <label for="website-select">Current Server:</label>
+        <select id="website-select" onchange="changeSource()">
+          <option value="/nasc1">Server 1</option>
+          <option value="/nasc3">Server 2</option>
+          <option value="/nas2" class="no-iframe">International</option>
+        </select>
+
+        <!--<a href="/nasc1" target="player">Server 1</a> | <a href="/nasc2" target="player">Server 2</a> | <a href="/nasc3" target="player">Server 3</a> | <a href="/clappr-nascar-new" target="player">Server 4</a> | <a href="/nas2">International</a>-->
+        <!--<a style="font-family: Arial;color:black;" href="#" onclick="return loadNextPage(-1)"> << Previous Server</a> <b style="font-family: Arial;color:black;"> |</b>
+        <a style="font-family: Arial;color:black;" href="#" onclick="return loadNextPage(1)">Next Server >> </a>-->
+        <!--<span class="br"></span>
+        <a id="shrinkporfavor2" style="font-family: Arial;font-size: 16px;" href="/chat2" target="thechat">Twitch Chat</a><span id="shrinkporfavor2" style="font-family: Arial;font-size: 16px;"> | </span><a id="shrinkporfavor2" style="font-family: Arial;font-size: 16px;" href="/chat" target="thechat">Chatango Chat</a>-->
+      </center>
+</div>
+    <main role="main">
+        <iframe id="vplayer" name="player" allowfullscreen="true" frameborder="0" height="100%" scrolling="no"  src="jwplayer.html" width="100%"></iframe>
+    </main>
+    <aside>
+      
+      <script>
+        function showChatRules() {
+          var modal = document.createElement("div");
+          modal.style.position = "fixed";
+          modal.style.zIndex = "1";
+          modal.style.left = "0";
+          modal.style.top = "0";
+          modal.style.width = "100%";
+          modal.style.height = "100%";
+          modal.style.overflow = "auto";
+          modal.style.backgroundColor = "rgba(0,0,0,0.4)";
+          
+          var content = document.createElement("div");
+          content.style.backgroundColor = "#fefefe";
+          content.style.margin = "auto";
+          content.style.padding = "20px";
+          content.style.border = "1px solid #888";
+          content.style.width = "80%";
+          content.style.position = "absolute";
+          content.style.left = "50%";
+          content.style.top = "50%";
+          content.style.transform = "translate(-50%, -50%)";
+          
+          var closeButton = document.createElement("span");
+          closeButton.style.color = "#aaa";
+          closeButton.style.float = "right";
+          closeButton.style.fontSize = "28px";
+          closeButton.style.fontWeight = "bold";
+          closeButton.style.cursor = "pointer";
+          closeButton.innerHTML = "&times;";
+          closeButton.onclick = function() {
+            modal.style.display = "none";
+          }
+          
+          var rules = document.createElement("p");
+          rules.innerHTML = "Chat rules:<br>1. Be respectful to other users.<br>2. No bigotry! (Ex. Racism, Sexism, etc.) <br>3. No politics, most of the time.<br>4. Have fun!";
+          
+          content.appendChild(closeButton);
+          content.appendChild(rules);
+          modal.appendChild(content);
+          document.body.appendChild(modal);
+        }
+      </script>
+      
+      <iframe id="theChat" name="thechat" allowfullscreen="true" frameborder="0" height="100%" scrolling="no"  src="https://www.twitch.tv/embed/derali1217/chat?darkpopout&amp;parent=dd12streams.com" width="100%"></iframe>
+<!--<script id="cid0020000350360668393" data-cfasync="false" async src="//st.chatango.com/js/gz/emb.js" style="width: 100%;height: 100%;">{"handle":"dd12stream","arch":"js","styles":{"a":"000000","b":100,"c":"FFFFFF","d":"FFFFFF","k":"000000","l":"000000","m":"000000","n":"FFFFFF","p":"10","q":"000000","r":100,"t":0,"surl":0}}</script>-->
+
+    </aside>
+
+
+
+      <!--<iframe style="overflow: hidden;border: 0;" src="https://server.dd12streams.com/counter-schedule.php" height="28"></iframe>-->
+    </div>
+<span class="footer">Made with ❤️ by DD12<br>Free Palestine 🇵🇸</span>
+<!--FUCK CAPITALISM-->
+<!--FUCK CAPITALISM-->
+<!--FUCK CAPITALISM-->
+<!--FUCK CAPITALISM-->
+
+<!--<script src="/strmsrc5.js?nocache=1"></script>-->
 </body>
+
+<!-- Mirrored from dd12streams.com/nas by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 15 Sep 2024 21:03:42 GMT -->
 </html>
