@@ -83,29 +83,29 @@
 
        // Function to load schedule
         function loadSchedule() {
-            const scheduleData = [
-                { date: "WWE Monday Night Raw", time: "10:00 PM", event: "Every Monday 8:00 PM ET", link: "#" },
-                { date: "Every Tuesday 8:00 PM ET", time: "11:00 AM", event: "Event 2", link: "#" },
-                { date: "Every Wednesday 8:00 PM ET", time: "2:00 PM", event: "Event 4", link: "#" },
-                { date: "Every Thursday 7:00 PM ET", time: "8:00 PM", event: "Event 5", link: "#" },
-                { date: "Every Friday 9:00 PM ET", time: "9:30 PM", event: "Event 6", link: "#" },
-                { date: "Every Saturday 10:00 PM ET", time: "10:30 PM", event: "Event 7", link: "#" },
-                { date: "Every Sunday 11:00 PM ET", time: "11:30 PM", event: "Event 8", link: "#" }
-            ];
+    const scheduleData = [
+        { date: "WWE Monday Night Raw", time: "", event: "Every Monday 8:00 PM ET", link: "#" },
+        { date: "Every Tuesday 8:00 PM ET", time: "11:00 AM", event: "Event 2", link: "#" },
+        { date: "Every Wednesday 8:00 PM ET", time: "2:00 PM", event: "Event 4", link: "#" },
+        { date: "Every Thursday 7:00 PM ET", time: "8:00 PM", event: "Event 5", link: "#" },
+        { date: "Every Friday 9:00 PM ET", time: "9:30 PM", event: "Event 6", link: "#" },
+        { date: "Every Saturday 10:00 PM ET", time: "10:30 PM", event: "Event 7", link: "#" },
+        { date: "Every Sunday 11:00 PM ET", time: "11:30 PM", event: "Event 8", link: "#" }
+    ];
 
-            const scheduleBody = document.getElementById('scheduleBody');
-            scheduleBody.innerHTML = ''; // Clear existing schedule
+    const scheduleBody = document.getElementById('scheduleBody');
+    scheduleBody.innerHTML = ''; // Clear existing schedule
 
-            scheduleData.forEach(item => {
-                const scheduleRow = document.createElement('tr');
-                scheduleRow.innerHTML = `
-                    <td>${item.date} ${item.time}</td>
-                    <td><a href="${item.link}">${item.event}</a></td>
-                    <td><a href="${item.link}">Details</a></td>
-                `;
-                scheduleBody.appendChild(scheduleRow);
-            });
-        }
+    scheduleData.forEach(item => {
+        const scheduleRow = document.createElement('tr');
+        scheduleRow.innerHTML = `
+            <td>${item.date} ${item.time}</td> <!-- Date & Time column as plain text -->
+            <td>${item.event}</td> <!-- Event column as plain text -->
+            <td><a href="${item.link}">Details</a></td> <!-- Link column clickable -->
+        `;
+        scheduleBody.appendChild(scheduleRow);
+    });
+}
 
         // Call the function to load the schedule
         loadSchedule();
