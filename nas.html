@@ -83,16 +83,31 @@
       </nav>
     </header>
 
-  <main style="display: flex; flex-wrap: nowrap; margin-top: 100px; padding: 20px;">
-    <!-- Stream Area -->
-    <section style="flex: 70%; padding-right: 10px;">
-      <label for="website-select">Current Server:</label>
-      <select id="website-select" onchange="changeSource()">
-        <option value="privatefeed.html">Server 1</option>
-        <option value="/nasc3">Server 2</option>
-        <option value="/nas2" class="no-iframe">International</option>
-      </select>
-<!--<a href="/nasc1" target="player">Server 1</a> | <a href="/nasc2" target="player">Server 2</a> | <a href="/nasc3" target="player">Server 3</a> | <a href="/clappr-nascar-new" target="player">Server 4</a> | <a href="/nas2">International</a>-->
+  <div style="font-family: Arial;font-size:25px;">
+
+<!--<a href="https://www.buymeacoffee.com/dd12streams" target="_blank"><img id="donobutton" src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" height="40px" width="157px"/></a>-->
+      <!--<a id="google_translate_element" class="DonateButton"></a>-->
+      <!--<a href="/adsports" class="DonateButton">International Feed</a>-->
+      <a href="how-to-watch-nascar-officially-and-legally.html" class="DonateButton">Official ways to stream</a>
+      <a class="DonateButton" style="color: white" onclick="darkMode()">Dark Mode</a>
+    <a href="big-nas.html" class="DonateButton">Big Player</a>
+    <!--<a onclick="showChatRules()" class="DonateButton" style="color:white">Chat Rules</a>-->
+    <a onclick="toggleChatIframe()" class="DonateButton" style="color:white">Show/Hide chat</a>
+    <a  href="javascript:window.open('https://www.twitch.tv/embed/derali1217/chat?darkpopout&amp;parent=dd12streams.com','DD12 Chat popped out','width=400,height=600')" class="DonateButton">Popout chat</a>
+    <a style="color: white" class="DonateButton">🔴 <span id="viewers">2k+ Viewers</span></a> 
+    
+      <center id="shrinkporfavor" style="font-size: 18px">
+        I am currently running low on funds. Any help is appreciated: <a href="donate.html">Donate</a>
+        <!--<span class="br"></span>-->
+<br>
+        <label for="website-select">Current Server:</label>
+        <select id="website-select" onchange="changeSource()">
+          <option value="/nasc1">Server 1</option>
+          <option value="/nasc3">Server 2</option>
+          <option value="/nas2" class="no-iframe">International</option>
+        </select>
+
+        <!--<a href="/nasc1" target="player">Server 1</a> | <a href="/nasc2" target="player">Server 2</a> | <a href="/nasc3" target="player">Server 3</a> | <a href="/clappr-nascar-new" target="player">Server 4</a> | <a href="/nas2">International</a>-->
         <!--<a style="font-family: Arial;color:black;" href="#" onclick="return loadNextPage(-1)"> << Previous Server</a> <b style="font-family: Arial;color:black;"> |</b>
         <a style="font-family: Arial;color:black;" href="#" onclick="return loadNextPage(1)">Next Server >> </a>-->
         <!--<span class="br"></span>
@@ -152,7 +167,6 @@
 <!--<script id="cid0020000350360668393" data-cfasync="false" async src="//st.chatango.com/js/gz/emb.js" style="width: 100%;height: 100%;">{"handle":"dd12stream","arch":"js","styles":{"a":"000000","b":100,"c":"FFFFFF","d":"FFFFFF","k":"000000","l":"000000","m":"000000","n":"FFFFFF","p":"10","q":"000000","r":100,"t":0,"surl":0}}</script>-->
 
     </aside>
-
   <footer>
     <span class="footer">Made with ❤️ by YourSite</span>
   </footer>
