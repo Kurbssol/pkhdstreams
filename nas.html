@@ -17,23 +17,6 @@
     <script src="stream-status.js"></script>
     <script src="viewer-count.js"></script>
     <script src="dono-popup.js"></script>
-    function darkMode() {
-      var element = document.documentElement;
-      var element2 = document.body;
-      var isDarkMode = element.classList.contains("dark-mode");
-
-      element.classList.toggle("dark-mode");
-      element2.classList.toggle("dark-mode");
-
-      localStorage.setItem("darkModeEnabled", !isDarkMode);
-    }
-    document.addEventListener("DOMContentLoaded", function() {
-      var darkModeEnabled = localStorage.getItem("darkModeEnabled");
-      if (darkModeEnabled === "true") {
-        darkMode();
-      }
-    });
-  </script>
   <script>
     function changeSource() {
       var iframe = document.getElementById("vplayer");
@@ -71,7 +54,6 @@
               <li class="nav-item">
                 <a href="schedule.html" class="nav-link">Schedule</a>
               </li>
-              <li class="nav-item">
       </div>
     </div>
   </header>
@@ -97,7 +79,7 @@
   </main>
 
   <footer>
-    <span class="footer">Made with ❤️ by YourSite</span>
+    <span class="footer">YourSite</span>
   </footer>
 </body>
 </html>
