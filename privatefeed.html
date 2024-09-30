@@ -1,35 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Live Stream</title>
-    <!-- Include Video.js CSS -->
-    <link href="https://vjs.zencdn.net/7.21.0/video-js.css" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JWPlayer M3U8 Stream</title>
+    <script src="https://cdn.jwplayer.com/libraries/IDzF9Zmk.js"></script>
 </head>
 <body>
-<div id="player"></div>
-<script type="text/javascript">
-var playerElement = document.getElementById("player");
-var player = new Clappr.Player({
-  source: 'https://dd12-cdn.b-cdn.net/static-files/stream.m3u8',
-  mimeType: 'application/x-mpegURL',
-  plugins: [LevelSelector, ChromecastPlugin],
-  height: '100%',
-  width: '100%',
-  preload: "metadata",
-  autoPlay: true,
-  levelSelectorConfig: {
-      title: 'Quality',
-      labels: {
-          2: '720p',
-          1: '360p',
-          0: '144p',
-        },
-  labelCallback: function(playbackLevel, customLabel) {
-          return customLabel + playbackLevel.level.height+'p'; // High 720p
-      }
-    },
-  });
-  player.attachTo(playerElement);
 
-</script>
+    <div id="player"></div>
+
+    <script>
+        jwplayer("player").setup({
+            file: "http://15.204.219.219:25461/LuxPlayer/get.php?id=20000347&type=stream.m3u8",
+            width: "100%",
+            aspectratio: "16:9",
+            autostart: true,  // Set to false if you don't want the stream to play automatically
+            mute: false,      // Set to true if you want the stream muted by default
+            stretching: "uniform"
+        });
+    </script>
+
 </body>
+</html>
