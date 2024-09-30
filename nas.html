@@ -2,8 +2,6 @@
 <html lang="en">
 <head>
   <title>Your Stream Page</title>
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <meta name="description" content="A light-weight streaming website that's easy to use. Come check us out!">
   <meta content="Stream Page" property="twitter:title" />
   <meta content="A pretty cool live streaming website." property="twitter:description" />
@@ -59,102 +57,48 @@
   </script>
 </head>
 <body>
- <header class="header">
-      <nav class="navbar navbar-expand-lg fixed-top py-3">
-        <div class="container">
-          <a href="index.html" class="navbar-brand text-uppercase font-weight-bold">My Streams</a>
-          <button type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right">
-            <i class="fa fa-bars"></i>
-          </button>
-          <div id="navbarNav" class="collapse navbar-collapse">
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item">
-                <a href="index.html" class="nav-link">Home</a>
-              </li>
-              <li class="nav-item">
-                <a href="schedule.html" class="nav-link">Schedule</a>
-              </li>
-              <li class="nav-item">
-                <a href="about.html" class="nav-link">About</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </header>
+  <!-- Header Section with Custom Style -->
+  <header class="header">
+    <div class="container">
+      <div class="header-content">
+        <a href="index.html" class="logo">
+          <img src="your-logo.png" alt="Logo" class="header-logo">
+        </a>
+        <nav class="header-nav">
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="donate.html">Donate</a></li>
+            <li><a href="schedule.html">Schedule</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="dmca.html">DMCA</a></li>
+            <li><a href="https://discord.gg/TTFE8Jfz7G" target="_blank">Discord</a></li>
+          </ul>
+        </nav>
+        <button class="dark-mode-toggle" onclick="darkMode()">Dark Mode</button>
+      </div>
+    </div>
+  </header>
 
+  <main style="display: flex; flex-wrap: nowrap; margin-top: 100px; padding: 20px;">
+    <!-- Stream Area -->
+    <section style="flex: 70%; padding-right: 10px;">
+      <label for="website-select">Current Server:</label>
+      <select id="website-select" onchange="changeSource()">
+        <option value="/nasc1">Server 1</option>
+        <option value="/nasc3">Server 2</option>
+        <option value="/nas2" class="no-iframe">International</option>
+      </select>
 
-  
+      <iframe id="vplayer" name="player" allowfullscreen="true" frameborder="0" height="500px" width="100%" src="jwplayer.html"></iframe>
+    </section>
 
-  <div style="font-family: Arial;font-size:25px;">
-<br>
-        <label for="website-select">Current Server:</label>
-        <select id="website-select" onchange="changeSource()">
-          <option value="/nasc1">Server 1</option>
-          <option value="/nasc3">Server 2</option>
-          <option value="/nas2" class="no-iframe">International</option>
-        </select>
-
-        <!--<a href="/nasc1" target="player">Server 1</a> | <a href="/nasc2" target="player">Server 2</a> | <a href="/nasc3" target="player">Server 3</a> | <a href="/clappr-nascar-new" target="player">Server 4</a> | <a href="/nas2">International</a>-->
-        <!--<a style="font-family: Arial;color:black;" href="#" onclick="return loadNextPage(-1)"> << Previous Server</a> <b style="font-family: Arial;color:black;"> |</b>
-        <a style="font-family: Arial;color:black;" href="#" onclick="return loadNextPage(1)">Next Server >> </a>-->
-        <!--<span class="br"></span>
-        <a id="shrinkporfavor2" style="font-family: Arial;font-size: 16px;" href="/chat2" target="thechat">Twitch Chat</a><span id="shrinkporfavor2" style="font-family: Arial;font-size: 16px;"> | </span><a id="shrinkporfavor2" style="font-family: Arial;font-size: 16px;" href="/chat" target="thechat">Chatango Chat</a>-->
-      </center>
-</div>
-    <main role="main">
-        <iframe id="vplayer" name="player" allowfullscreen="true" frameborder="0" height="100%" scrolling="no"  src="jwplayer.html" width="100%"></iframe>
-    </main>
-    <aside>
-      
-      <script>
-        function showChatRules() {
-          var modal = document.createElement("div");
-          modal.style.position = "fixed";
-          modal.style.zIndex = "1";
-          modal.style.left = "0";
-          modal.style.top = "0";
-          modal.style.width = "100%";
-          modal.style.height = "100%";
-          modal.style.overflow = "auto";
-          modal.style.backgroundColor = "rgba(0,0,0,0.4)";
-          
-          var content = document.createElement("div");
-          content.style.backgroundColor = "#fefefe";
-          content.style.margin = "auto";
-          content.style.padding = "20px";
-          content.style.border = "1px solid #888";
-          content.style.width = "80%";
-          content.style.position = "absolute";
-          content.style.left = "50%";
-          content.style.top = "50%";
-          content.style.transform = "translate(-50%, -50%)";
-          
-          var closeButton = document.createElement("span");
-          closeButton.style.color = "#aaa";
-          closeButton.style.float = "right";
-          closeButton.style.fontSize = "28px";
-          closeButton.style.fontWeight = "bold";
-          closeButton.style.cursor = "pointer";
-          closeButton.innerHTML = "&times;";
-          closeButton.onclick = function() {
-            modal.style.display = "none";
-          }
-          
-          var rules = document.createElement("p");
-          rules.innerHTML = "Chat rules:<br>1. Be respectful to other users.<br>2. No bigotry! (Ex. Racism, Sexism, etc.) <br>3. No politics, most of the time.<br>4. Have fun!";
-          
-          content.appendChild(closeButton);
-          content.appendChild(rules);
-          modal.appendChild(content);
-          document.body.appendChild(modal);
-        }
-      </script>
-      
-      <iframe id="theChat" name="thechat" allowfullscreen="true" frameborder="0" height="100%" scrolling="no"  src="https://www.twitch.tv/embed/derali1217/chat?darkpopout&amp;parent=dd12streams.com" width="100%"></iframe>
-<!--<script id="cid0020000350360668393" data-cfasync="false" async src="//st.chatango.com/js/gz/emb.js" style="width: 100%;height: 100%;">{"handle":"dd12stream","arch":"js","styles":{"a":"000000","b":100,"c":"FFFFFF","d":"FFFFFF","k":"000000","l":"000000","m":"000000","n":"FFFFFF","p":"10","q":"000000","r":100,"t":0,"surl":0}}</script>-->
-
+    <!-- Chat Box -->
+    <aside style="flex: 30%; padding-left: 10px;">
+      <button onclick="toggleChatIframe()" style="width: 100%; margin-bottom: 10px;">Show/Hide Chat</button>
+      <iframe id="theChat" name="thechat" allowfullscreen="true" frameborder="0" height="500px" width="100%" src="https://www.twitch.tv/embed/derali1217/chat?darkpopout&amp;parent=dd12streams.com"></iframe>
     </aside>
+  </main>
+
   <footer>
     <span class="footer">Made with ❤️ by YourSite</span>
   </footer>
