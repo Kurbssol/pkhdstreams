@@ -93,8 +93,24 @@
         <option value="/nas2" class="no-iframe">International</option>
       </select>
 
-      <iframe id="vplayer" name="player" allowfullscreen="true" frameborder="0" height="500px" width="100%" src="jwplayer.html"></iframe>
-    </section>
+      <script src="https://cdn.jwplayer.com/libraries/IDzF9Zmk.js"></script>
+</head>
+<body>
+
+    <div id="player"></div>
+
+    <script>
+        jwplayer("player").setup({
+            file: "http://15.204.219.219:25461/LuxPlayer/get.php?id=20000347&type=stream.m3u8",
+            width: "100%",
+            aspectratio: "16:9",
+            autostart: true,  // Set to false if you don't want the stream to play automatically
+            mute: false,      // Set to true if you want the stream muted by default
+            stretching: "uniform"
+        });
+    </script>
+
+</body>
 
     <!-- Chat Box -->
     <aside style="flex: 30%; padding-left: 10px;">
